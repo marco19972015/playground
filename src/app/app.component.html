@@ -1,8 +1,15 @@
 <main class="container">
-  <div *ngFor="let x of data">
+
+  <section>
+    <!-- Get the user input (store in an array) -->
+    <input type="text" [(ngModel)]="userInput">
+  </section>
+
+
+  <div *ngFor="let x of userInputArray">
     {{ x }}
   </div>
 
   <br>
-  <button (click)="getData()">Click Me</button>
+  <button (click)="getAsynch()">Async data</button>
 </main>

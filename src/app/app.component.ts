@@ -8,25 +8,25 @@ import { Observable } from 'rxjs';
 })
 export class AppComponent {
   // Steps for an observable
-  // Obserbale [event emitter] (Call Back)
-  // Observer  [subscriber]
-  // Handler   [event handler] (Call Back)
+  // Observable [event emitter] (Call Back)
+  // Observer   [subscriber]
+  // Handler    [event handler] (Call Back)
 
-  title = 'playground';
-
-  data: number[] = [];
-
-  // oberservable
-  myObservable = new Observable((o) => {
-    setTimeout(() => { o.next(1) }, 500)
-    setTimeout(() => { o.next(2) }, 1000)
-    setTimeout(() => { o.next(3) }, 1500)
+  userInput: string = '';
+  userInputArray: any = [];
+  
+  // Create an observable
+  myObservable = new Observable((observer) => {
+    // Set time intervals by 1 second
+    setTimeout(() => { observer.next(this.userInput)}, 1000)
   })
 
-  getData(){
-    // Observer [subscriber]
-    this.myObservable.subscribe((o:any) => {   // Event handler Call Back
-      this.data.push(o)
+  // method to subscribe nad handle the subscribe 
+  getAsynch(){
+    // subscribe to the observable
+    this.myObservable.subscribe((value) => {  // use the handler to push value getting retrieved
+      this.userInputArray.push(value)
     })
   }
+
 }
