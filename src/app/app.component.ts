@@ -7,18 +7,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  // Steps for an observable
-  // Observable [event emitter] (Call Back)
-  // Observer   [subscriber]
-  // Handler    [event handler] (Call Back)
-
   userInput: string = '';
   userInputArray: any = [];
   
   // Create an observable
   myObservable = new Observable((observer) => {
     // Set time intervals by 1 second
-    setTimeout(() => { observer.next(this.userInput)}, 1000)
+    setTimeout(() => { observer.next(this.userInput)},)
+    console.log(this.userInputArray);
+    setTimeout(() => {observer.error(new Error('This error will be thrown after the first run')), 1000})
   })
 
   // method to subscribe nad handle the subscribe 
@@ -26,7 +23,9 @@ export class AppComponent {
     // subscribe to the observable
     this.myObservable.subscribe((value) => {  // use the handler to push value getting retrieved
       this.userInputArray.push(value)
-    })
-  }
+    }, (err) => {
+      alert(err)
+    }
+    )}
 
 }
