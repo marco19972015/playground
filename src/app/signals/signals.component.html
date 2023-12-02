@@ -1,1 +1,16 @@
-<p>signals works!</p>
+<main>
+
+    <section>
+        <input type="text" [(ngModel)]="userInput">
+        <button (click)="sigButton()">Signal button</button>
+    </section>
+
+
+    <section>
+        <div *ngFor="let input of userInputArray()">
+            {{input}}
+        </div>
+    </section>
+
+    
+</main>
