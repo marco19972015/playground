@@ -1,0 +1,21 @@
+<main class="container">
+
+    <section>
+      <!-- Receive the input from the user in our class -->
+      <input type="text" [(ngModel)]="getUserInput">
+      
+      <button (click)="pushInToarray()">Click me</button>
+    </section>
+  
+    <br>
+  
+    <section>
+      <div *ngFor="let input of storingUserInput">
+        {{input}}
+      </div>
+    </section>
+  
+  
+  
+  
+  </main>
